@@ -18,6 +18,7 @@ BuildRequires:	xorg-lib-libXpm-devel
 BuildRequires:	libtool
 BuildRequires:	pkg-config
 BuildRequires:	xorg-util-util-macros
+Obsoletes:	libXaw
 BuildRoot:	%{tmpdir}/libXaw-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -38,6 +39,7 @@ Requires:	xorg-lib-libXaw = %{version}-%{release}
 Requires:	xorg-lib-libXmu-devel
 Requires:	xorg-lib-libXp-devel
 Requires:	xorg-lib-libXpm-devel
+Obsoletes:	libXaw-devel
 
 %description devel
 X Athena Widgets library.
@@ -57,6 +59,7 @@ Summary:	Static libXaw libraries
 Summary(pl):	Biblioteki statyczne libXaw
 Group:		Development/Libraries
 Requires:	xorg-lib-libXaw-devel = %{version}-%{release}
+Obsoletes:	libXaw-static
 
 %description static
 X Athena Widgets library.
