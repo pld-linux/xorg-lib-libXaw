@@ -1,5 +1,3 @@
-
-#
 Summary:	X Athena Widgets library
 Summary(pl):	Biblioteka X Athena Widgets
 Name:		xorg-lib-libXaw
@@ -12,14 +10,14 @@ Source0:	http://xorg.freedesktop.org/X11R7.0-RC0/lib/libXaw-%{version}.tar.bz2
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
+BuildRequires:	pkgconfig >= 0.19
 BuildRequires:	xorg-lib-libXmu-devel
 BuildRequires:	xorg-lib-libXp-devel
 BuildRequires:	xorg-lib-libXpm-devel
-BuildRequires:	libtool
-BuildRequires:	pkgconfig >= 0.19
 BuildRequires:	xorg-util-util-macros
 Obsoletes:	libXaw
-BuildRoot:	%{tmpdir}/libXaw-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -30,12 +28,11 @@ X Athena Widgets library.
 %description -l pl
 Biblioteka X Athena Widgets.
 
-
 %package devel
 Summary:	Header files libXaw development
 Summary(pl):	Pliki nag³ówkowe do biblioteki libXaw
 Group:		X11/Development/Libraries
-Requires:	xorg-lib-libXaw = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-lib-libXmu-devel
 Requires:	xorg-lib-libXp-devel
 Requires:	xorg-lib-libXpm-devel
@@ -53,12 +50,11 @@ Biblioteka X Athena Widgets.
 Pakiet zawiera pliki nag³ówkowe niezbêdne do kompilowania programów
 u¿ywaj±cych biblioteki libXaw.
 
-
 %package static
-Summary:	Static libXaw libraries
-Summary(pl):	Biblioteki statyczne libXaw
-Group:		Development/Libraries
-Requires:	xorg-lib-libXaw-devel = %{version}-%{release}
+Summary:	Static libXaw library
+Summary(pl):	Biblioteka statyczna libXaw
+Group:		X11/Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
 Obsoletes:	libXaw-static
 
 %description static
@@ -70,7 +66,6 @@ This package contains the static libXaw library.
 Biblioteka X Athena Widgets.
 
 Pakiet zawiera statyczn± bibliotekê libXaw.
-
 
 %prep
 %setup -q -n libXaw-%{version}
@@ -92,7 +87,6 @@ rm -rf $RPM_BUILD_ROOT
 	pkgconfigdir=%{_pkgconfigdir} \
 	aclocaldir=%{_aclocaldir}
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -102,18 +96,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog README
-%attr(755,root,wheel) %{_libdir}/libXaw*.so.*
-
+%attr(755,root,root) %{_libdir}/libXaw*.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/X11/Xaw/*.h
+%attr(755,root,root) %{_libdir}/libXaw*.so
 %{_libdir}/libXaw*.la
-%attr(755,root,wheel) %{_libdir}/libXaw*.so
+%{_includedir}/X11/Xaw/*.h
 %{_aclocaldir}/xaw.m4
 %{_pkgconfigdir}/xaw*.pc
 %{_mandir}/man3/*.3*
-
 
 %files static
 %defattr(644,root,root,755)
