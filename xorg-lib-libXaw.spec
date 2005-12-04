@@ -1,12 +1,12 @@
 Summary:	X Athena Widgets library
 Summary(pl):	Biblioteka X Athena Widgets
 Name:		xorg-lib-libXaw
-Version:	0.99.2
+Version:	0.99.3
 Release:	0.1
 License:	MIT
 Group:		X11/Libraries
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC2/lib/libXaw-%{version}.tar.bz2
-# Source0-md5:	c139324a5c636e6a659ddd33d3647192
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC3/lib/libXaw-%{version}.tar.bz2
+# Source0-md5:	250612be2f9a83739a465407e21fc21d
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -16,7 +16,7 @@ BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXmu-devel
 BuildRequires:	xorg-lib-libXp-devel
 BuildRequires:	xorg-lib-libXpm-devel
-BuildRequires:	xorg-util-util-macros
+BuildRequires:	xorg-util-util-macros >= 0.99.2
 Obsoletes:	libXaw
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -82,7 +82,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	libmandir=%{_mandir}/man3 \
 	pkgconfigdir=%{_pkgconfigdir} \
 	aclocaldir=%{_aclocaldir}
 
