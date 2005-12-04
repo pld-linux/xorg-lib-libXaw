@@ -27,8 +27,8 @@ X Athena Widgets library.
 Biblioteka X Athena Widgets.
 
 %package devel
-Summary:	Header files libXaw development
-Summary(pl):	Pliki nag³ówkowe do biblioteki libXaw
+Summary:	Header files for libXaw library
+Summary(pl):	Pliki nag³ówkowe biblioteki libXaw
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-lib-libXmu-devel
@@ -40,7 +40,7 @@ Obsoletes:	libXaw-devel
 X Athena Widgets library.
 
 This package contains the header files needed to develop programs that
-use these libXaw.
+use libXaw.
 
 %description devel -l pl
 Biblioteka X Athena Widgets.
