@@ -1,12 +1,12 @@
 Summary:	X Athena Widgets library
 Summary(pl):	Biblioteka X Athena Widgets
 Name:		xorg-lib-libXaw
-Version:	0.99.3
+Version:	1.0.0
 Release:	0.1
 License:	MIT
 Group:		X11/Libraries
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC3/lib/libXaw-%{version}.tar.bz2
-# Source0-md5:	250612be2f9a83739a465407e21fc21d
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC4/lib/libXaw-%{version}.tar.bz2
+# Source0-md5:	7412422c46dc62bff526354dcd1d24e2
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
