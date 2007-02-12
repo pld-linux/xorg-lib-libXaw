@@ -1,5 +1,5 @@
 Summary:	X Athena Widgets library
-Summary(pl):	Biblioteka X Athena Widgets
+Summary(pl.UTF-8):   Biblioteka X Athena Widgets
 Name:		xorg-lib-libXaw
 Version:	1.0.3
 Release:	1
@@ -23,12 +23,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 X Athena Widgets library.
 
-%description -l pl
+%description -l pl.UTF-8
 Biblioteka X Athena Widgets.
 
 %package devel
 Summary:	Header files for libXaw library
-Summary(pl):	Pliki nag³ówkowe biblioteki libXaw
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki libXaw
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-lib-libXmu-devel
@@ -42,15 +42,15 @@ X Athena Widgets library.
 This package contains the header files needed to develop programs that
 use libXaw.
 
-%description devel -l pl
+%description devel -l pl.UTF-8
 Biblioteka X Athena Widgets.
 
-Pakiet zawiera pliki nag³ówkowe niezbêdne do kompilowania programów
-u¿ywaj±cych biblioteki libXaw.
+Pakiet zawiera pliki nagÅ‚Ã³wkowe niezbÄ™dne do kompilowania programÃ³w
+uÅ¼ywajÄ…cych biblioteki libXaw.
 
 %package static
 Summary:	Static libXaw library
-Summary(pl):	Biblioteka statyczna libXaw
+Summary(pl.UTF-8):   Biblioteka statyczna libXaw
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Obsoletes:	libXaw-static
@@ -60,10 +60,10 @@ X Athena Widgets library.
 
 This package contains the static libXaw library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteka X Athena Widgets.
 
-Pakiet zawiera statyczn± bibliotekê libXaw.
+Pakiet zawiera statycznÄ… bibliotekÄ™ libXaw.
 
 %prep
 %setup -q -n libXaw-%{version}
