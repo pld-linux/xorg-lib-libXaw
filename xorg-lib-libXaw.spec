@@ -1,5 +1,5 @@
 Summary:	X Athena Widgets library
-Summary(pl.UTF-8):   Biblioteka X Athena Widgets
+Summary(pl.UTF-8):	Biblioteka X Athena Widgets
 Name:		xorg-lib-libXaw
 Version:	1.0.3
 Release:	1
@@ -28,7 +28,7 @@ Biblioteka X Athena Widgets.
 
 %package devel
 Summary:	Header files for libXaw library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki libXaw
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libXaw
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-lib-libXmu-devel
@@ -50,7 +50,7 @@ używających biblioteki libXaw.
 
 %package static
 Summary:	Static libXaw library
-Summary(pl.UTF-8):   Biblioteka statyczna libXaw
+Summary(pl.UTF-8):	Biblioteka statyczna libXaw
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Obsoletes:	libXaw-static
