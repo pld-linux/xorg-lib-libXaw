@@ -5,12 +5,12 @@
 Summary:	X Athena Widgets library
 Summary(pl.UTF-8):	Biblioteka X Athena Widgets
 Name:		xorg-lib-libXaw
-Version:	1.0.4
-Release:	3
+Version:	1.0.5
+Release:	1
 License:	MIT
 Group:		X11/Libraries
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXaw-%{version}.tar.bz2
-# Source0-md5:	73671d8f1cf36fdd81395328cc3539c9
+# Source0-md5:	64e7782db4653cb57c7f7e660b2431c3
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -81,19 +81,6 @@ Pakiet zawiera statyczną bibliotekę libXaw.
 
 %configure \
 	%{!?with_static_libs:--disable-static}
-
-# Bring hack here, after libtool file is actually created.
-# See configure.ac.
-ed libtool << \EOF
-/^soname_spec/i
-# X.Org hack to match monolithic Xaw SONAME
-xorglibxawname="libXaw"
-.
-/^soname_spec/s/libname/xorglibxawname/
-w
-q
-EOF
-
 %{__make}
 
 %install
@@ -115,24 +102,19 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING ChangeLog README
 %attr(755,root,root) %{_libdir}/libXaw6.so.6.*.*
 %attr(755,root,root) %{_libdir}/libXaw7.so.7.*.*
-%attr(755,root,root) %{_libdir}/libXaw8.so.8.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libXaw6.so
 %attr(755,root,root) %{_libdir}/libXaw7.so
-%attr(755,root,root) %{_libdir}/libXaw8.so
 %attr(755,root,root) %{_libdir}/libXaw.so
 %{_libdir}/libXaw6.la
 %{_libdir}/libXaw7.la
-%{_libdir}/libXaw8.la
 %dir %{_includedir}/X11/Xaw
 %{_includedir}/X11/Xaw/*.h
 %{_includedir}/X11/Xaw/Template.c
-%{_aclocaldir}/xaw.m4
 %{_pkgconfigdir}/xaw6.pc
 %{_pkgconfigdir}/xaw7.pc
-%{_pkgconfigdir}/xaw8.pc
 %{_mandir}/man3/*.3x*
 
 %if %{with static_libs}
@@ -140,5 +122,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libXaw6.a
 %{_libdir}/libXaw7.a
-%{_libdir}/libXaw8.a
 %endif
