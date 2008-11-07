@@ -6,7 +6,7 @@ Summary:	X Athena Widgets library
 Summary(pl.UTF-8):	Biblioteka X Athena Widgets
 Name:		xorg-lib-libXaw
 Version:	1.0.4
-Release:	2
+Release:	3
 License:	MIT
 Group:		X11/Libraries
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXaw-%{version}.tar.bz2
@@ -78,8 +78,22 @@ Pakiet zawiera statyczną bibliotekę libXaw.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
+
 %configure \
 	%{!?with_static_libs:--disable-static}
+
+# Bring hack here, after libtool file is actually created.
+# See configure.ac.
+ed libtool << \EOF
+/^soname_spec/i
+# X.Org hack to match monolithic Xaw SONAME
+xorglibxawname="libXaw"
+.
+/^soname_spec/s/libname/xorglibxawname/
+w
+q
+EOF
+
 %{__make}
 
 %install
