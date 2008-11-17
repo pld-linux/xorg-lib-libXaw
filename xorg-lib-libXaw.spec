@@ -91,6 +91,9 @@ rm -rf $RPM_BUILD_ROOT
 	pkgconfigdir=%{_pkgconfigdir} \
 	aclocaldir=%{_aclocaldir}
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libXaw[67].so.[67]
+/sbin/ldconfig -n $RPM_BUILD_ROOT%{_libdir}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -101,7 +104,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc COPYING ChangeLog README
 %attr(755,root,root) %{_libdir}/libXaw6.so.6.*.*
+%attr(755,root,root) %ghost %{_libdir}/libXaw.so.6
 %attr(755,root,root) %{_libdir}/libXaw7.so.7.*.*
+%attr(755,root,root) %ghost %{_libdir}/libXaw.so.7
 
 %files devel
 %defattr(644,root,root,755)
@@ -115,7 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/X11/Xaw/Template.c
 %{_pkgconfigdir}/xaw6.pc
 %{_pkgconfigdir}/xaw7.pc
-%{_mandir}/man3/*.3x*
+%{_mandir}/man3/Xaw.3x*
 
 %if %{with static_libs}
 %files static
