@@ -20,15 +20,17 @@ BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXmu-devel
 BuildRequires:	xorg-lib-libXp-devel
 BuildRequires:	xorg-lib-libXpm-devel
-BuildRequires:	xorg-util-util-macros >= 0.99.2
+BuildRequires:	xorg-util-util-macros >= 1.2.1
 Obsoletes:	libXaw
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-X Athena Widgets library.
+X Athena Widgets library. Athena Widget Set is baced on the X Toolkit
+Intrinsics (Xt) library.
 
 %description -l pl.UTF-8
-Biblioteka X Athena Widgets.
+Biblioteka X Athena Widgets. Zestaw widgetów Athena jest oparty na
+bibliotece X Toolkit Intrinsics (Xt).
 
 %package devel
 Summary:	Header files for libXaw library
