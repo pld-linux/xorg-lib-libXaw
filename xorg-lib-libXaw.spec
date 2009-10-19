@@ -6,7 +6,7 @@ Summary:	X Athena Widgets library
 Summary(pl.UTF-8):	Biblioteka X Athena Widgets
 Name:		xorg-lib-libXaw
 Version:	1.0.7
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Libraries
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXaw-%{version}.tar.bz2
@@ -14,13 +14,13 @@ Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXaw-%{version}.t
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	ed
+BuildRequires:	groff
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXmu-devel
 BuildRequires:	xorg-lib-libXp-devel
 BuildRequires:	xorg-lib-libXpm-devel
-BuildRequires:	xorg-util-util-macros >= 1.2.1
+BuildRequires:	xorg-util-util-macros >= 1.3
 Obsoletes:	libXaw
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -96,6 +96,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libXaw[67].so.[67]
 /sbin/ldconfig -n $RPM_BUILD_ROOT%{_libdir}
 
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/libXaw
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -112,6 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%doc spec/widgets.ps
 %attr(755,root,root) %{_libdir}/libXaw6.so
 %attr(755,root,root) %{_libdir}/libXaw7.so
 %attr(755,root,root) %{_libdir}/libXaw.so
