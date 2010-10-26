@@ -5,22 +5,25 @@
 Summary:	X Athena Widgets library
 Summary(pl.UTF-8):	Biblioteka X Athena Widgets
 Name:		xorg-lib-libXaw
-Version:	1.0.7
-Release:	3
+Version:	1.0.8
+Release:	1
 License:	MIT
 Group:		X11/Libraries
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXaw-%{version}.tar.bz2
-# Source0-md5:	815e74de989ccda684e2baf8d12cf519
+# Source0-md5:	030fced589e9128c3cf57564d4a2e1ab
 URL:		http://xorg.freedesktop.org/
-BuildRequires:	autoconf >= 2.57
+BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	groff
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
+BuildRequires:	xmlto >= 0.0.20
+BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXmu-devel
-BuildRequires:	xorg-lib-libXp-devel
 BuildRequires:	xorg-lib-libXpm-devel
-BuildRequires:	xorg-util-util-macros >= 1.3
+BuildRequires:	xorg-lib-libXt-devel
+BuildRequires:	xorg-sgml-doctools >= 1.5
+BuildRequires:	xorg-util-util-macros >= 1.10
 Obsoletes:	libXaw
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -37,9 +40,10 @@ Summary:	Header files for libXaw library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libXaw
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	xorg-lib-libXext-devel
 Requires:	xorg-lib-libXmu-devel
-Requires:	xorg-lib-libXp-devel
 Requires:	xorg-lib-libXpm-devel
+Requires:	xorg-lib-libXt-devel
 Obsoletes:	libXaw-devel
 
 %description devel
@@ -114,7 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc spec/widgets.ps
+%doc specs/*.{html,css}
 %attr(755,root,root) %{_libdir}/libXaw6.so
 %attr(755,root,root) %{_libdir}/libXaw7.so
 %attr(755,root,root) %{_libdir}/libXaw.so
