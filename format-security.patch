@@ -1,0 +1,11 @@
+--- libXaw-1.0.11/src/DisplayList.c~	2012-06-02 05:31:37.000000000 +0200
++++ libXaw-1.0.11/src/DisplayList.c	2012-12-13 14:31:01.364529613 +0100
+@@ -290,7 +290,7 @@
+ 	}
+       if (fp)
+ 	{
+-	  snprintf(cname, fp - fname + 1, fname);
++	  snprintf(cname, fp - fname + 1, "%s", fname);
+ 	  memmove(fname, fp + 1, strlen(fp));
+ 	  lc = cname[0] ? XawGetDisplayListClass(cname) : xlibc;
+ 	  if (!lc)
