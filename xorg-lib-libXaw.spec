@@ -129,7 +129,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/X11/Xaw/Template.c
 %{_pkgconfigdir}/xaw6.pc
 %{_pkgconfigdir}/xaw7.pc
-%{_mandir}/man3/Xaw.3x*
+%{_mandir}/man3/Xaw.3*
 
 %if %{with static_libs}
 %files static
