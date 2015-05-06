@@ -5,13 +5,12 @@
 Summary:	X Athena Widgets library
 Summary(pl.UTF-8):	Biblioteka X Athena Widgets
 Name:		xorg-lib-libXaw
-Version:	1.0.12
-Release:	2
+Version:	1.0.13
+Release:	1
 License:	MIT
 Group:		X11/Libraries
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXaw-%{version}.tar.bz2
-# Source0-md5:	7446f5fba888672aad068b29c0928ba3
-Patch0:		format-security.patch
+# Source0-md5:	e5e06eb14a608b58746bdd1c0bd7b8e3
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
@@ -78,7 +77,6 @@ Pakiet zawiera statyczną bibliotekę libXaw.
 
 %prep
 %setup -q -n libXaw-%{version}
-%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -88,7 +86,8 @@ Pakiet zawiera statyczną bibliotekę libXaw.
 %{__automake}
 
 %configure \
-	%{!?with_static_libs:--disable-static}
+	%{!?with_static_libs:--disable-static} \
+	--without-fop
 %{__make}
 
 %install
@@ -96,13 +95,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	pkgconfigdir=%{_pkgconfigdir} \
-	aclocaldir=%{_aclocaldir}
+	pkgconfigdir=%{_pkgconfigdir}
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libXaw[67].so.[67]
 /sbin/ldconfig -n $RPM_BUILD_ROOT%{_libdir}
 
-%{__rm} -r $RPM_BUILD_ROOT{%{_docdir}/libXaw,%{_libdir}/libXaw[67].la}
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libXaw[67].la
+# packaged as %doc
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/libXaw
 
 %clean
 rm -rf $RPM_BUILD_ROOT
