@@ -5,13 +5,13 @@
 Summary:	X Athena Widgets library
 Summary(pl.UTF-8):	Biblioteka X Athena Widgets
 Name:		xorg-lib-libXaw
-Version:	1.0.13
+Version:	1.0.14
 Release:	1
 License:	MIT
 Group:		X11/Libraries
-Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXaw-%{version}.tar.bz2
-# Source0-md5:	e5e06eb14a608b58746bdd1c0bd7b8e3
-URL:		http://xorg.freedesktop.org/
+Source0:	https://xorg.freedesktop.org/releases/individual/lib/libXaw-%{version}.tar.bz2
+# Source0-md5:	c1ce21c296bbf3da3e30cf651649563e
+URL:		https://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	docbook-dtd43-xml
@@ -24,7 +24,7 @@ BuildRequires:	xorg-lib-libXpm-devel
 BuildRequires:	xorg-lib-libXt-devel
 BuildRequires:	xorg-sgml-doctools >= 1.8
 BuildRequires:	xorg-util-util-macros >= 1.12
-Obsoletes:	libXaw
+Obsoletes:	libXaw < 7.0.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -44,7 +44,7 @@ Requires:	xorg-lib-libXext-devel
 Requires:	xorg-lib-libXmu-devel
 Requires:	xorg-lib-libXpm-devel
 Requires:	xorg-lib-libXt-devel
-Obsoletes:	libXaw-devel
+Obsoletes:	libXaw-devel < 7.0.3
 
 %description devel
 X Athena Widgets library.
@@ -63,7 +63,7 @@ Summary:	Static libXaw library
 Summary(pl.UTF-8):	Biblioteka statyczna libXaw
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
-Obsoletes:	libXaw-static
+Obsoletes:	libXaw-static < 7.0.3
 
 %description static
 X Athena Widgets library.
@@ -113,7 +113,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING ChangeLog README
+%doc COPYING ChangeLog README.md
 %attr(755,root,root) %{_libdir}/libXaw6.so.6.*.*
 %attr(755,root,root) %ghost %{_libdir}/libXaw.so.6
 %attr(755,root,root) %{_libdir}/libXaw7.so.7.*.*
