@@ -5,18 +5,19 @@
 Summary:	X Athena Widgets library
 Summary(pl.UTF-8):	Biblioteka X Athena Widgets
 Name:		xorg-lib-libXaw
-Version:	1.0.14
-Release:	2
+Version:	1.0.15
+Release:	1
 License:	MIT
 Group:		X11/Libraries
-Source0:	https://xorg.freedesktop.org/releases/individual/lib/libXaw-%{version}.tar.bz2
-# Source0-md5:	c1ce21c296bbf3da3e30cf651649563e
+Source0:	https://xorg.freedesktop.org/releases/individual/lib/libXaw-%{version}.tar.xz
+# Source0-md5:	3f1e1052dbf3a2b8582ec24137e1fbd1
 URL:		https://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	docbook-dtd43-xml
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
 BuildRequires:	pkgconfig >= 1:0.19
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xmlto >= 0.0.22
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXmu-devel
@@ -24,6 +25,7 @@ BuildRequires:	xorg-lib-libXpm-devel
 BuildRequires:	xorg-lib-libXt-devel
 BuildRequires:	xorg-sgml-doctools >= 1.8
 BuildRequires:	xorg-util-util-macros >= 1.12
+BuildRequires:	xz
 Obsoletes:	libXaw < 7.0.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
